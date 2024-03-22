@@ -1,4 +1,4 @@
-name: Build and Deploy to prod
+name: CI
 
 on:
   push:
