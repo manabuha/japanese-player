@@ -8,6 +8,33 @@
     <script type="module" src="dist/japanese_video_player.js"></script>
 </head>
 <body>
-    <japanese-video-player></japanese-video-player>
+    <japanese-video-player
+        src="/src/mock/video.mp4"
+    >
+    </japanese-video-player>
+
+    <script>
+        const japaneseVideoPlayer = document.querySelector('japanese-video-player');
+        const subtitles = [
+            {
+                src: "/src/mock/video_subs_en.vtt",
+                srclang: "en",
+                label: "English",
+                default: true
+            },
+            {
+                src: "/src/mock/video_subs_en.vtt",
+                srclang: "ru",
+                label: "Русский"
+            },
+            {
+                src: "/src/mock/video_subs_en.vtt",
+                srclang: "jpn",
+                label: "日本語"
+            }
+        ];
+
+        japaneseVideoPlayer.subtitles = subtitles;
+    </script>
 </body>
 </html>
