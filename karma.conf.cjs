@@ -27,7 +27,13 @@ module.exports = (config) => {
 
         autoWatch: false,
 
-        browsers: ['Firefox'],
+        browsers: ['FirefoxHeadless'],
+        customLaunchers: {
+            FirefoxHeadless: {
+                base: 'Firefox',
+                flags: ['-headless'],
+            },
+        },
 
         browserNoActivityTimeout: 90000,
 
