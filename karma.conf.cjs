@@ -12,7 +12,7 @@ module.exports = (config) => {
         plugins: [
             'karma-mocha',
             'karma-source-map-support',
-            'karma-yandex-launcher',
+            'karma-firefox-launcher',
         ],
 
         files: [
@@ -27,19 +27,7 @@ module.exports = (config) => {
 
         autoWatch: false,
 
-        browsers: ['YandexCustom'],
-        customLaunchers: {
-            YandexCustom: {
-                base: 'Yandex',
-                flags: [
-                    '--disable-background-timer-throttling',
-                    '--disable-device-discovery-notifications',
-                    '--ignore-connections-limit=localhost',
-                    '--disable-renderer-backgrounding',
-                    '--disable-backgrounding-occluded-windows',
-                ],
-            },
-        },
+        browsers: ['Firefox'],
 
         browserNoActivityTimeout: 90000,
 
