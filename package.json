@@ -10,6 +10,7 @@
     "serve": "npx serve .",
     "start": "run-p watch:player serve",
     "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "prepare": "husky install",
     "test": "rollup -c rollup_configs/rollup.tests.config.js && npx karma start karma.conf.cjs"
   },

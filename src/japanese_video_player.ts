@@ -40,7 +40,7 @@ export class JapaneseVideoPlayer extends LitElement {
         >
           <!-- <tracks> -->
           ${this.subtitles.map(
-              (subtitle: Subtitle) => html`
+    (subtitle: Subtitle) => html`
                 <track
                     kind="subtitles"
                     src="${subtitle.src}"
