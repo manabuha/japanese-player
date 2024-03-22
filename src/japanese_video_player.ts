@@ -23,11 +23,6 @@ export class JapaneseVideoPlayer extends LitElement {
   @property({ type: String }) src = '';
   @property({ type: Array<Subtitle> }) subtitles = [];
 
-  connectedCallback() {
-    super.connectedCallback();
-    console.log(this.subtitles);
-  }
-
   render() {
     return html`
       <div id="container">
