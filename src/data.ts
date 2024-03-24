@@ -1,7 +1,7 @@
 import {Subtitle} from 'types';
 
 export const baseUrl = process.env.NODE_ENV === 'production' ?
-  'https://github.com/daniilboyarinkov/japanese-player/tree/prod' :
+  'https://raw.githubusercontent.com/daniilboyarinkov/japanese-player/prod' :
   '';
 
 console.log(baseUrl);
