@@ -22,6 +22,12 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Checkout to prod
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git checkout prod
+
       - name: Install dependencies
         run: npm ci
 
@@ -33,8 +39,6 @@ jobs:
 
       - name: Add dist folder to git
         run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
           git add dist -f
           git commit -m "Update prod." --no-verify
           SERVER_URL=${{ github.server_url }}
