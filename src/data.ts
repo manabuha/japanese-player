@@ -14,7 +14,7 @@ export const subtitles: Subtitle[] = [
     default: true
   },
   {
-    src: `${baseUrl}/src/mock/video_subs_en.vtt`,
+    src: `${baseUrl}/src/mock/video_subs_ru.vtt`,
     srclang: 'ru',
     label: 'Русский'
   },
