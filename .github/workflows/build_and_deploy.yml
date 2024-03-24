@@ -24,6 +24,7 @@ jobs:
 
       - name: Checkout to prod
         run: |
+          git pull
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git checkout prod
