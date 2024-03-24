@@ -14,6 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           ref: ${{ github.head_ref }}
 
       - name: Set up Node.js
@@ -41,5 +42,3 @@ jobs:
           echo "Clean Server URL: $CLEAN_SERVER_URL"
           git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@$CLEAN_SERVER_URL/${{ github.repository }}
           git push --set-upstream origin HEAD:${{ github.ref }}
-        env:
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
