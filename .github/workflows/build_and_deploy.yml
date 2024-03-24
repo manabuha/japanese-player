@@ -33,4 +33,7 @@ jobs:
           git config --global user.name "GitHub Action"
           git add dist -f
           git commit -m "Update prod." --no-verify
-          git push
+          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@${{ github.server_url }}/${{ github.repository }}
+          git push --set-upstream origin HEAD:${{ github.ref }}
+        env:
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
