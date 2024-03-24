@@ -18,9 +18,9 @@ export const subtitles: Subtitle[] = [
     srclang: 'ru',
     label: 'Русский'
   },
-  {
-    src: `${baseUrl}/src/mock/video_subs_en.vtt`,
-    srclang: 'jpn',
-    label: '日本語'
-  }
+  // {
+  //   src: `${baseUrl}/src/mock/video_subs_en.vtt`,
+  //   srclang: 'jpn',
+  //   label: '日本語'
+  // }
 ];
