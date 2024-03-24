@@ -39,7 +39,7 @@ jobs:
           SERVER_URL=${{ github.server_url }}
           CLEAN_SERVER_URL=$(echo "$SERVER_URL" | sed 's|https://||')
           echo "Clean Server URL: $CLEAN_SERVER_URL"
-          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@$CLEAN_SERVER_URL/${{ github.repository }}
+          git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@$CLEAN_SERVER_URL/${{ github.repository }}
           git push --set-upstream origin HEAD:${{ github.ref }}
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
