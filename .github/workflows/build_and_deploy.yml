@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build:player
+        run: npm run build:prod
 
       - name: Check GitHub Server URL
         run: echo "GitHub Server URL is ${{ github.server_url }}"

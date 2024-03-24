@@ -1,12 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
-
-interface Subtitle {
-  src: string,
-  srclang: 'en' | 'ru' | 'jpn',
-  label: string,
-  default: boolean,
-}
+import {Subtitle} from 'types';
 
 export class JapaneseVideoPlayer extends LitElement {
   public static is: string = 'japanese-video-player';
