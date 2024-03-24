@@ -1,7 +1,7 @@
 import {Subtitle} from 'types';
 
 export const baseUrl = process.env.NODE_ENV === 'production' ?
-  'japanese-player' :
+  '/japanese-player' :
   '';
 
 console.log(baseUrl);
