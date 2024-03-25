@@ -6,10 +6,12 @@ const handleSubtitlesTokenClick = (token: string): void => {
 };
 
 const japaneseVideoPlayer =
-  document.querySelector(
+  document.createElement(
     'japanese-video-player',
   )! as JapaneseVideoPlayer;
 
-japaneseVideoPlayer.src = `${baseUrl}/src/mock/video.mp4`;
+japaneseVideoPlayer.src = `${baseUrl}/src/mock/Boku dake ga Inai Machi 01.webm`;
 japaneseVideoPlayer.subtitles = subtitles;
 japaneseVideoPlayer.handleTokenClick = handleSubtitlesTokenClick;
+
+document.body.appendChild(japaneseVideoPlayer);
