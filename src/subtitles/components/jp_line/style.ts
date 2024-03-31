@@ -17,6 +17,10 @@ const styles = css`
     background-color: rgba(0, 0, 0, 0.5);
     pointer-events: all;
   }
+
+  :host([hidden="true"]) {
+    display: none;
+  }
 `;
 
 export default styles;
