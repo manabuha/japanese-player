@@ -1,8 +1,9 @@
 import {LitElement, html, PropertyValues} from 'lit';
 import { property, query } from 'lit/decorators.js';
 import style from 'style';
+import {JpPanel} from 'subtitles/components/jp_panel/jp_panel';
 import {JpSubtitles} from 'subtitles/jp_subtitles';
-import {Subtitle} from 'types';
+import {Subtitle, TextTrackExtended} from 'types';
 
 export class JapaneseVideoPlayer extends LitElement {
   public static is: string = 'japanese-video-player';
@@ -20,6 +21,7 @@ export class JapaneseVideoPlayer extends LitElement {
 
   @query('#video') videoElement!: HTMLVideoElement;
   @query(JpSubtitles.is) subtitlesElement!: JpSubtitles;
+  @query(JpPanel.is) panelElement!: JpPanel;
 
   public render() {
     return html`
@@ -43,12 +45,16 @@ export class JapaneseVideoPlayer extends LitElement {
           Your browser does not support the video tag.
       </video>
       <jp-subtitles .handleTokenClick="${this.handleTokenClick}"></jp-subtitles>
+      <jp-panel .handleTextTrackClick="${this.toggleSubtitle}"></jp-panel>
   `;
   }
 
   public updated(changedProperties: PropertyValues) {
     if (changedProperties.has('subtitles') && this.videoElement) {
+      // @ts-expect-error Type mismatch :(
       this.subtitlesElement.textTracks = this.videoElement.textTracks;
+      // @ts-expect-error Type mismatch :(
+      this.panelElement.textTracks = this.videoElement.textTracks;
     }
   }
 
@@ -64,6 +70,16 @@ export class JapaneseVideoPlayer extends LitElement {
       textTrack.mode = 'hidden';
     }
   }
+
+  private toggleSubtitle = (textTrack: TextTrackExtended): void => {
+    textTrack.isActive = textTrack.isActive === 'true' ?
+      'false' :
+      textTrack.isActive ?
+        'true' :
+        'false';
+
+    this.subtitlesElement.forceUpdate();
+  };
 }
 
 declare global {

@@ -1,6 +1,7 @@
 import {property} from 'lit/decorators.js';
 import styles from 'subtitles/style';
 import {LitElement, html} from 'lit';
+import {TextTrackExtendedList} from 'types';
 
 import 'subtitles/components/jp_line/jp_line';
 
@@ -9,7 +10,7 @@ export class JpSubtitles extends LitElement {
   public static styles = styles;
 
   @property({ type: Object })
-    textTracks?: TextTrackList;
+    textTracks?: TextTrackExtendedList;
 
   @property({ type: Function })
     handleTokenClick?: (token: string) => void;
@@ -22,14 +23,19 @@ export class JpSubtitles extends LitElement {
     return html`
       ${Array.from(this.textTracks).map((textTrack) => (
     html`
-          <jp-line
-            lang="${textTrack.language}"
-            .textTrack="${textTrack}"
-            .handleTokenClick="${this.handleTokenClick}"
-          "></jp-line>
-        `
+      <jp-line
+        hidden="${textTrack.isActive === 'false'}"
+        lang="${textTrack.language}"
+        .textTrack="${textTrack}"
+        .handleTokenClick="${this.handleTokenClick}"
+      ></jp-line>
+    `
   ))}
     `;
+  }
+
+  public forceUpdate() {
+    this.requestUpdate();
   }
 }
 

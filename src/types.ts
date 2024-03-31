@@ -7,3 +7,15 @@ export interface Subtitle {
   label: string,
   default?: boolean,
 }
+
+export interface TextTrackExtended extends TextTrack {
+  isActive: 'true' | 'false',
+}
+
+export interface TextTrackExtendedList extends TextTrackList {
+  [index: number]: TextTrackExtended;
+}
+
+interface TextTrackList {
+  [Symbol.iterator](): IterableIterator<TextTrackExtended>;
+}
